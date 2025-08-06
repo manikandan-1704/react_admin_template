@@ -1,11 +1,14 @@
 import './index.css';
+import Header from './components/Header';
 
 function App() {
-  return(
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-3xl underline">React Admin Template</h1>
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Header />
+      <div className="flex items-center justify-center mt-10">
       </div>
-  )
+    </div>
+  );
 }
 
 export default App;
