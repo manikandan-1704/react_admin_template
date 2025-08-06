@@ -9,7 +9,10 @@ const Header = ({ onToggleSidebar }) => {
         <button onClick={onToggleSidebar} className="md:hidden block">
           <Menu className="w-6 h-6 text-gray-700" />
         </button>
-        <h1 className="text-lg font-semibold text-gray-800">Mk</h1>
+            <a href="/" className="flex items-center gap-2">
+            <img src="/logo.png" alt="Logo" className="w-8 h-8" />
+            <h1 className="text-lg font-semibold text-gray-800">Mk</h1>
+            </a>
       </div>
 
       <div className="flex items-center gap-4">
