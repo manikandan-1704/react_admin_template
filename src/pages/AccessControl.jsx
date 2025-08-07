@@ -1,8 +1,12 @@
-export default function AccessControl() {
-    return (
-        <div>
-            <h1>Access Control</h1>
-            <p>This is the access control page.</p>
-        </div>
-    );
-}
+import React from "react";
+import PageLayout from "../components/layouts/pageLayout";
+
+const AccessControl = () => {
+  return (
+    <PageLayout title="Access Control">
+      <p>Welcome to the Access Control!</p>
+    </PageLayout>
+  );
+};
+
+export default AccessControl;

@@ -1,8 +1,12 @@
-export default function Users() {
-    return (
-        <div>
-            <h1>Users</h1>
-            <p>This is the users page.</p>
-        </div>
-    );
-}
+import React from "react";
+import PageLayout from "../components/layouts/pageLayout";
+
+const Users = () => {
+  return (
+    <PageLayout title="Users">
+      <p>Welcome to the User!</p>
+    </PageLayout>
+  );
+};
+
+export default Users;
