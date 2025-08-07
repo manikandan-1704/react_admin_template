@@ -27,3 +27,31 @@ body {
   margin: 0 auto;
   padding: 1rem;
 }
+
+.icon-button {
+  @apply p-2 text-gray-600 hover:text-blue-600 transition duration-200;
+}
+
+.add-button {
+  background-color: #2563eb; 
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-button:hover {
+  background-color: #1d4ed8; 
+}
+
+.badge {
+  @apply inline-block px-2 py-1 text-xs font-semibold rounded-full;
+}
+.badge-active {
+  @apply bg-green-100 text-green-800;
+}
+.badge-inactive {
+  @apply bg-red-100 text-red-800;
+}
