@@ -4,9 +4,9 @@ import { Home, Settings, Users } from 'lucide-react';
 const Sidebar = ({ isCollapsed }) => {
   return (
     <aside
-      className={`h-screen bg-white border-r transition-all duration-300  
-        ${isCollapsed ? 'w-16' : 'w-64'}`}
-    >
+  className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-white border-r transition-all duration-300
+    ${isCollapsed ? 'w-16' : 'w-64'}`}
+>
       <ul className="space-y-4 p-4">
         <li className="flex items-center gap-3 text-gray-700">
           <Home className="w-5 h-5" />
