@@ -15,7 +15,7 @@ function App() {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header onToggleSidebar={toggleSidebar} />
 
-      <div className="flex flex-1 pt-16"> {/* Add pt-16 for header spacing */}
+      <div className="flex flex-1 pt-16"> 
         <Sidebar isCollapsed={isSidebarCollapsed} />
 
         <main className="flex-grow p-6 transition-all duration-300">
