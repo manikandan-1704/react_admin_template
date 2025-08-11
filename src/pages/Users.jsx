@@ -4,8 +4,10 @@ import { useGetUsersQuery } from "../redux/api/userApi";
 import Table from "../components/common/Table";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import AddUserModal from "../components/users/AddUserModal";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
+  const navigate = useNavigate();
   const { data: users, isLoading, error } = useGetUsersQuery();
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -37,7 +39,7 @@ const Users = () => {
                 </span>
               </td>
               <td className="border px-4 py-2">
-                <button className="icon-button"><FaEye /></button>
+                <button className="icon-button" onClick={() => navigate(`/users/${user.id}`)}><FaEye /></button>
                 <button className="icon-button"><FaEdit /></button>
                 <button className="icon-button"><FaTrash /></button>
               </td>
@@ -46,7 +48,6 @@ const Users = () => {
         />
       </PageLayout>
 
-      {/* Global Modal usage */}
       <AddUserModal isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
     </>
   );

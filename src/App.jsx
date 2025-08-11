@@ -9,6 +9,7 @@ import Users from './pages/Users';
 import Roles from './pages/Roles';
 import AccessControl from './pages/AccessControl';
 import Settings from './pages/Settings';
+import UserDetail from './pages/UserDetail';  
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -36,6 +37,7 @@ function App() {
             <Route path="/roles" element={<Roles />} />
             <Route path="/access-control" element={<AccessControl />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/users/:id" element={<UserDetail />} />
           </Routes>
         </main>
       </div>
