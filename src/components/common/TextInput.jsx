@@ -7,12 +7,15 @@ const TextInput = ({
   value,
   onChange,
   error,
+  required = false,
   ...props
 }) => {
   return (
     <div className="flex flex-col gap-1">
       {label && (
-        <label className="text-sm font-medium text-gray-600">{label}</label>
+        <label className="text-sm font-medium text-gray-600">{label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+        </label>
       )}
       <input
         type={type}

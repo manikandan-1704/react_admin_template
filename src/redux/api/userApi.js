@@ -24,6 +24,16 @@ export const userApi = createApi({
         method: 'POST',
         body: newUser,
       }),
+      invalidatesTags: ['Users'],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setLoading(true));
+        try {
+          await queryFulfilled;
+        } catch (err) {
+        } finally {
+          dispatch(setLoading(false));
+        }
+      },
     }),
   }),
 });
