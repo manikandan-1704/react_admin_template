@@ -5,11 +5,13 @@ import App from './App.jsx'
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import GlobalLoader from './components/common/GlobalLoader.jsx';
+import ToastProvider from "./components/common/ToastProvider";
 
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <GlobalLoader />
     <App />
+    <ToastProvider />
   </Provider>,
 )
