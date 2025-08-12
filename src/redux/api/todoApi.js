@@ -20,9 +20,29 @@ export const todoApi = createApi({
         }
       },
     }),
+    
+    addTodo: builder.mutation({
+      query: (newTodo) => ({
+        url: 'todos',
+        method: 'POST',
+        body: newTodo,
+      }),
+      invalidatesTags: ['Todos'],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setLoading(true));
+        try {
+          await queryFulfilled;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          dispatch(setLoading(false));
+        }
+      },
+    }),
   }),
 });
 
 export const {
   useGetTodosQuery,
+  useAddTodoMutation,
 } = todoApi;

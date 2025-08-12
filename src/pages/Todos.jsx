@@ -5,9 +5,11 @@ import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { useGetTodosQuery } from "../redux/api/todoApi";
 import { useGetUsersQuery } from "../redux/api/userApi";
 import TruncatedCell from "../components/common/TruncatedCell";
-
+import { useState } from "react";
+import AddTodoModal from "../components/todos/AddTodoModal";
 
 const Todos = () => {
+  const [showAddModal, setShowAddModal] = useState(false);
   
   const { data: todos, isLoading: todosLoading, error: todosError } = useGetTodosQuery();
   const { data: users, isLoading: usersLoading, error: usersError } = useGetUsersQuery();
@@ -22,7 +24,14 @@ const Todos = () => {
   });
 
   return (
-    <PageLayout title="Todos">
+    <>
+    <PageLayout title="Todos"
+    headerActions={
+          <button className="add-button" onClick={() => setShowAddModal(true)}>
+            Add Todo
+          </button>
+        }
+    >
       <Table
           columns={["S.No", "Username", "Task", "Status", "Actions"]}
           data={todos || []}
@@ -45,6 +54,9 @@ const Todos = () => {
           )}
         />
     </PageLayout>
+    <AddTodoModal isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
+
+    </>
   );
 };
 
