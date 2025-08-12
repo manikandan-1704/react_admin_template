@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Home,
   Users,
-  Shield,
+  CheckSquare,
   Lock,
   Settings,
   LogOut,
@@ -13,7 +13,7 @@ const Sidebar = ({ isCollapsed }) => {
   const menuItems = [
     { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/' },
     { icon: <Users className="w-5 h-5" />, label: 'Users', path: '/users' },
-    { icon: <Shield className="w-5 h-5" />, label: 'Roles', path: '/roles' },
+    { icon: <CheckSquare className="w-5 h-5" />, label: 'Todos', path: '/todos' },
     { icon: <Lock className="w-5 h-5" />, label: 'Access Control', path: '/access-control' },
     { icon: <Settings className="w-5 h-5" />, label: 'Settings', path: '/settings' },
     { icon: <LogOut className="w-5 h-5" />, label: 'Logout', path: '/logout' },

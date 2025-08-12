@@ -6,7 +6,7 @@ import Sidebar from './components/Sidebar';
 import './index.css';
 import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
-import Roles from './pages/Roles';
+import Todos from './pages/Todos';
 import AccessControl from './pages/AccessControl';
 import Settings from './pages/Settings';
 import UserDetail from './pages/UserDetail';  
@@ -34,7 +34,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/users" element={<Users />} />
-            <Route path="/roles" element={<Roles />} />
+            <Route path="/todos" element={<Todos />} />
             <Route path="/access-control" element={<AccessControl />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/users/:id" element={<UserDetail />} />

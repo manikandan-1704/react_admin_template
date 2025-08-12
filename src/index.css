@@ -55,3 +55,14 @@ body {
 .badge-inactive {
   @apply bg-red-100 text-red-800;
 }
+
+.truncate-text {
+  max-width: 150px;        
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+
+
