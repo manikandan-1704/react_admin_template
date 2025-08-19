@@ -10,7 +10,7 @@ import Todos from './pages/Todos';
 import AccessControl from './pages/AccessControl';
 import Settings from './pages/Settings';
 import UserDetail from './pages/UserDetail';  
-
+import TodoDetail from './pages/TodoDetail';
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
@@ -38,6 +38,7 @@ function App() {
             <Route path="/access-control" element={<AccessControl />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/users/:id" element={<UserDetail />} />
+            <Route path ="/todos/:id" element={<TodoDetail />} />
           </Routes>
         </main>
       </div>
