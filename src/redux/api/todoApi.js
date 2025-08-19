@@ -57,11 +57,29 @@ export const todoApi = createApi({
         }
       },
     }),
+        deleteTodo: builder.mutation({
+          query: (id) => ({
+            url: `todos/${id}`,
+            method: 'DELETE',
+          }),
+          invalidatesTags: ['Todos', 'Todo'],
+          async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+            dispatch(setLoading(true));
+            try {
+              await queryFulfilled;
+            } catch (err) {
+              console.error(err);
+            } finally {
+              dispatch(setLoading(false));
+            }
+          },
+        }),
   }),
 });
 
 export const {
   useGetTodosQuery,
   useAddTodoMutation,
-  useUpdateTodoMutation
+  useUpdateTodoMutation,
+  useDeleteTodoMutation
 } = todoApi;

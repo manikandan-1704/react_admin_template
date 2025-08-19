@@ -2,19 +2,26 @@ import React from "react";
 import PageLayout from "../components/layouts/pageLayout";
 import Table from "../components/common/Table";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
-import { useGetTodosQuery } from "../redux/api/todoApi";
+import { useDeleteTodoMutation, useGetTodosQuery } from "../redux/api/todoApi";
 import { useGetUsersQuery } from "../redux/api/userApi";
 import TruncatedCell from "../components/common/TruncatedCell";
 import { useState } from "react";
 import AddTodoModal from "../components/todos/AddTodoModal";
 import { useNavigate } from "react-router-dom";
 import UpdateTodoModal from "../components/todos/UpdateTodoModal";
+import Modal from "../components/common/Modal";
+import { toast } from "react-toastify";
 
 const Todos = () => {
   const navigate = useNavigate();
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [todoToDelete, setTodoToDelete] = useState(null);
+  const [deleteTodo] = useDeleteTodoMutation();
+  
+  
   
   const { data: todos, isLoading: todosLoading, error: todosError } = useGetTodosQuery();
   const { data: users, isLoading: usersLoading, error: usersError } = useGetUsersQuery();
@@ -32,6 +39,25 @@ const Todos = () => {
     setSelectedTodo(todo);
     setShowUpdateModal(true);
   };
+
+      const handleDelete = (todoId) => {
+      setTodoToDelete(todoId);
+      setShowDeleteModal(true);
+    };
+
+        const confirmDelete = async () => {
+      try {
+        await deleteTodo(todoToDelete).unwrap();
+        toast.success("Todo deleted successfully!");
+        console.log("Todo deleted:", todoToDelete);
+      } catch (err) {
+        console.error("Failed to delete todo:", err);
+        toast.error("Failed to delete todo");
+      } finally {
+        setShowDeleteModal(false);
+        setTodoToDelete(null);
+      }
+    };
 
   return (
     <>
@@ -58,7 +84,7 @@ const Todos = () => {
               <td className="border px-4 py-2">
                 <button className="icon-button" onClick={() => navigate(`/todos/${todo.id}`)}><FaEye /></button>
                 <button className="icon-button" onClick={() => handleEdit(todo)}><FaEdit /></button>
-                <button className="icon-button"><FaTrash /></button>
+                <button className="icon-button" onClick={() => handleDelete(todo.id)}><FaTrash /></button>
               </td>
             </tr>
           )}
@@ -66,7 +92,26 @@ const Todos = () => {
     </PageLayout>
     <AddTodoModal isOpen={showAddModal} onClose={() => setShowAddModal(false)} />
     <UpdateTodoModal isOpen={showUpdateModal} onClose={() => setShowUpdateModal(false)} todo={selectedTodo} />
-
+  
+  {showDeleteModal && (
+  <Modal isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)} title="Confirm Delete">
+    <p>Are you sure you want to delete this todo?</p>
+    <div className="flex justify-end gap-3 pt-4">
+      <button
+        onClick={() => setShowDeleteModal(false)}
+        className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+      >
+        Cancel
+      </button>
+      <button
+        onClick={confirmDelete}
+        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+      >
+        Yes, Delete
+      </button>
+    </div>
+  </Modal>
+)}
     </>
   );
 };
