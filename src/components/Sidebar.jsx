@@ -3,9 +3,9 @@ import {
   Home,
   Users,
   CheckSquare,
-  Lock,
   Settings,
   LogOut,
+  Package,
 } from 'lucide-react';
 import { NavLink as Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const Sidebar = ({ isCollapsed }) => {
     { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/' },
     { icon: <Users className="w-5 h-5" />, label: 'Users', path: '/users' },
     { icon: <CheckSquare className="w-5 h-5" />, label: 'Todos', path: '/todos' },
-    { icon: <Lock className="w-5 h-5" />, label: 'Access Control', path: '/access-control' },
+    { icon: <Package className="w-5 h-5" />, label: 'Products', path: '/products' },
     { icon: <Settings className="w-5 h-5" />, label: 'Settings', path: '/settings' },
     { icon: <LogOut className="w-5 h-5" />, label: 'Logout', path: '/logout' },
   ];

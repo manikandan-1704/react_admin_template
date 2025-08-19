@@ -7,10 +7,10 @@ import './index.css';
 import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import Todos from './pages/Todos';
-import AccessControl from './pages/AccessControl';
 import Settings from './pages/Settings';
 import UserDetail from './pages/UserDetail';  
 import TodoDetail from './pages/TodoDetail';
+import Products from './pages/Products';
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
@@ -35,7 +35,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/users" element={<Users />} />
             <Route path="/todos" element={<Todos />} />
-            <Route path="/access-control" element={<AccessControl />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/users/:id" element={<UserDetail />} />
             <Route path ="/todos/:id" element={<TodoDetail />} />
