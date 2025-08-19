@@ -1,12 +1,61 @@
-# React + Vite
+# ⚡ React Admin Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 Live Demo
 
-Currently, two official plugins are available:
+**Live App:** [https://react-admin-template-mk.netlify.app/](https://react-admin-template-mk.netlify.app/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Overview
+
+A **frontend-only React Admin Template** built with **ReactJS, Redux Toolkit, and Tailwind CSS**.
+
+It provides a **scalable and reusable structure** for admin dashboards with pre-built components and responsive layouts.
+
+This template includes **global loader, reusable UI components, and sample modules** like **Users, Todos, Products, and Settings**.
+
+---
+
+## 🚀 Features
+
+- 📊 Dashboard-ready layout with sidebar & topbar
+- ♻️ Reusable components (Card, Table, Buttons, Input, Toaster)
+- ⏳ Global loading state with **Redux Toolkit**
+- 📱 Fully responsive (Mobile, Tablet, Desktop)
+- 🛠 Pre-configured API layer with **RTK Query**
+- 📦 Example modules:
+  - Users management
+  - Products listing
+  - Todos tracking
+  - Settings page
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend:** ReactJS, Redux Toolkit, Tailwind CSS  
+**State Management:** Redux Toolkit + RTK Query  
+**UI Components:** Custom reusable components (Card, Table, Modal, Input, Toaster)  
+**Routing:** React Router DOM  
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/manikandan-1704/react_admin_template.git
+    ```
+2. **Install dependencies**
+    ```bash
+    npm install
+    ```
+3. **Run the server**
+    ```bash
+    npm run dev
+    ```
+
+## ✨ Happy Coding!
+
+
