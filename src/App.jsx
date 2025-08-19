@@ -11,6 +11,8 @@ import Settings from './pages/Settings';
 import UserDetail from './pages/UserDetail';  
 import TodoDetail from './pages/TodoDetail';
 import Products from './pages/Products';
+import ProductDetail from "./pages/ProductDetail";
+
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
@@ -39,6 +41,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/users/:id" element={<UserDetail />} />
             <Route path ="/todos/:id" element={<TodoDetail />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
           </Routes>
         </main>
       </div>

@@ -20,9 +20,24 @@ export const productApi = createApi({
         }
       },
     }),
+        getProductById: builder.query({
+        query: (id) => `products/${id}`,
+      providesTags: ['Products'],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        dispatch(setLoading(true));
+        try {
+          await queryFulfilled;
+        } catch (err) {
+          console.error(err);
+        } finally {
+          dispatch(setLoading(false));
+        }
+      },
+    }), 
   }),
 });
 
 export const {
   useGetProductsQuery,
+  useGetProductByIdQuery
 } = productApi;

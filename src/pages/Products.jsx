@@ -1,6 +1,8 @@
 import React from "react";
 import PageLayout from "../components/layouts/pageLayout";
-import { useGetProductsQuery } from "../redux/api/productApi";
+import { useGetProductsQuery, useGetProductByIdQuery } from "../redux/api/productApi";
+import { Link } from "react-router-dom";
+
 
 const Products = () => {
   const { data, isLoading, error } = useGetProductsQuery();
@@ -12,6 +14,8 @@ const Products = () => {
     <PageLayout title="Products">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.products?.map((product) => (
+            <Link key={product.id} to={`/products/${product.id}`}>
+
           <div
   key={product.id}
   className="bg-gray-100 border border-gray-200 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-400 transition p-4 flex flex-col"
@@ -39,6 +43,7 @@ const Products = () => {
               </span>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </PageLayout>
